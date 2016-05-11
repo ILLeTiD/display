@@ -11,20 +11,7 @@ $(document).ready(function(){
 		  autoplaySpeed: 2000,
 
 	});
-			$(".ba-slider-projects").slick({
-			slidesToShow: 4,
-			variableWidth: true,
-			centerMode: true,
-			arrows: false,
-			asNavFor: '.ba-slider-description'
-		});
-		$(".ba-slider-description").slick({
-			asNavFor: '.ba-slider-description',
-			slide: ".ba-slider-description__slide",
-			autoplay: true,
-			prevArrow: $(".ba-portfolio-text-slider__prev"),
-			nextArrow: $(".ba-portfolio-text-slider__next"),
-		});
+
 
 		$( '.swipebox' ).swipebox();
 
@@ -42,9 +29,32 @@ $(document).ready(function(){
 
 });
 $(window).load(function(){
-		var $grid = $('.ba-grid').isotope({
+
+		$(".ba-slider-projects").slick({
+			slidesToShow: 4,
+			slidesToScroll: 1,
+			 variableWidth: true,
+			centerMode: true,
+			arrows: false,
+			infinite: true,
+			asNavFor: '.ba-slider-description',
+			focusOnSelect: true
+		});
+		$(".ba-slider-description").slick({
+			asNavFor: '.ba-slider-projects',
+			slide: ".ba-slider-description__slide",
+			prevArrow: $(".ba-portfolio-text-slider__prev"),
+			nextArrow: $(".ba-portfolio-text-slider__next")
+		});
+
+
+
+		var $grid = $('.ba-works').isotope({
 			itemSelector: '.ba-works__work',
-			layoutMode: 'fitRows'
+			layoutMode: 'fitRows',
+				fitRows:{
+					gutter: 20
+				}
 		});
 		// bind filter button click
 		$('.filters-button-group').on( 'click', 'button', function() {
